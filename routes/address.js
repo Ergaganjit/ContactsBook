@@ -10,7 +10,7 @@ router.get("/", function (req, res, next) {
     if (err) throw err;
     var dbo = db.db("contacts");
     dbo
-      .collection("contacts")
+      .collection("pcontacts")
       .find({})
       .toArray(function (err, result) {
         if (err) throw err;

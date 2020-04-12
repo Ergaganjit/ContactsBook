@@ -9,6 +9,7 @@ var addressRouter = require("./routes/address");
 var contactRouter = require("./routes/createContact");
 var pcontactsRouter = require("./routes/pcontacts");
 var createPContactRouter = require("./routes/createPContacts");
+var pdcontactsRouter = require("./routes/pdcontacts");
 var app = express();
 
 // view engine setup
@@ -26,6 +27,7 @@ app.use("/address", addressRouter);
 app.use("/pcontacts", pcontactsRouter);
 app.use("/createContact", contactRouter);
 app.use("/createPContacts", createPContactRouter);
+app.use("/pdcontacts", pdcontactsRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
