@@ -5,8 +5,6 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var hbs = require("hbs");
 var indexRouter = require("./routes/index");
-var addressRouter = require("./routes/address");
-var contactRouter = require("./routes/createContact");
 var pcontactsRouter = require("./routes/pcontacts");
 var createPContactRouter = require("./routes/createPContacts");
 var pdcontactsRouter = require("./routes/pdcontacts");
@@ -23,9 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/address", addressRouter);
 app.use("/pcontacts", pcontactsRouter);
-app.use("/createContact", contactRouter);
 app.use("/createPContacts", createPContactRouter);
 app.use("/pdcontacts", pdcontactsRouter);
 // catch 404 and forward to error handler
