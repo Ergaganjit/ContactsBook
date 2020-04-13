@@ -1,0 +1,26 @@
+<table>
+
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email id</th>
+        <th>Company Name</th>
+        <th>Business Phone</th>
+        <th>Office Address</th>
+        <th>Note</th>
+
+    </tr>
+
+    {{#each bcontact}}
+    <tr>
+        <td>{{this.bfname}}</td>
+        <td>{{this.blname}}</td>
+        <td>{{this.bemail}}</td>
+        <td>{{this.bcompanyname}}</td>
+        <td>{{this.bphone}}</td>
+        <td>{{this.bofficeaddress}}</td>
+        <td>{{this.note}}</td>
+
+    </tr>
+    {{/each}}
+</table>

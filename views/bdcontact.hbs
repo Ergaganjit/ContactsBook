@@ -1,6 +1,6 @@
 <div class="container">
     <h4 align="center">
-        Personal Contacts List
+        Business Contacts List
     </h4>
 
 </div>
@@ -10,27 +10,29 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email id</th>
-        <th>Address</th>
-        <th>DOB</th>
-        <th>Phone</th>
+        <th>Company Name</th>
+        <th>Business Phone No</th>
+        <th>Office Address</th>
+        <th>Note</th>
         <th>Delete</th>
         <th>Update</th>
     </tr>
-    {{#each pdcontacts}}
+    {{#each bdcontact}}
     <tr>
-        <td>{{this.fname}} </td>
-        <td>{{this.lname}} </td>
-        <td>{{this.email}} </td>
-        <td>{{this.address}} </td>
-        <td>{{this.dob}} </td>
-        <td>{{this.phone}} </td>
+        <td>{{this.bfname}} </td>
+        <td>{{this.blname}} </td>
+        <td>{{this.bemail}} </td>
+        <td>{{this.bcompanyname}} </td>
+        <td>{{this.bphone}} </td>
+        <td>{{this.bofficeaddress}} </td>
+        <td>{{this.note}} </td>
         <td>
-            <form action="/pdcontacts/{{_id}}/delete" method="post">
+            <form action="/bdcontact/{{_id}}/delete" method="post">
                 <button class="btn" type="submit"><i class="material-icons">delete</i></button>
             </form>
         </td>
         <td>
-            <form action="/pdcontacts/{{_id}}/update" method="post">
+            <form action="/bdcontact/{{_id}}/update" method="post">
                 <button class="btn" type="submit"><i class="material-icons">update</i></button>
             </form>
         </td>

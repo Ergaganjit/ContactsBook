@@ -9,7 +9,7 @@ router.post("/", function (req, res, next) {
     if (err) throw err;
     var dbo = db.db("contacts");
     dbo
-      .collection("pcontacts")
+      .collection("bcontact")
       .insertOne(req.body)
       .then((value) => {
         console.log(req.body, { _id: req.body._id });
@@ -26,7 +26,7 @@ router.put("/:id/update", (req, res) => {
     var dbo = db.db("contacts");
     var userToUpdate = req.params.id;
     dbo
-      .collection("pcontacts")
+      .collection("bcontact")
       .findOneAndUpdate({ _id: userToUpdate }, req.body, function (
         err,
         result
@@ -40,15 +40,15 @@ router.put("/:id/update", (req, res) => {
 /* GET users listing. */
 router.post("/:id/delete", function (req, res, next) {
   var url = "mongodb://localhost:27017/";
-  var pdcontacts = MongoClient.connect(url, function (err, db) {
+  var bdcontact = MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("contacts");
     dbo
-      .collection("pcontacts")
+      .collection("bcontact")
       .deleteOne({ _id: new mongodb.ObjectID(req.params.id) })
       .then(function (value) {
         console.log(value.result);
-        res.redirect("/pdcontacts");
+        res.redirect("/bdcontact");
         db.close();
       })
       .catch((error) => console.log(error));
@@ -58,15 +58,15 @@ router.post("/:id/delete", function (req, res, next) {
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   var url = "mongodb://localhost:27017/";
-  var pcontacts = MongoClient.connect(url, function (err, db) {
+  var bcontact = MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("contacts");
     dbo
-      .collection("pcontacts")
+      .collection("bcontact")
       .find({})
       .toArray(function (err, result) {
         if (err) throw err;
-        res.render("pdcontacts", { pdcontacts: result });
+        res.render("bdcontact", { bdcontact: result });
         db.close();
       });
   });

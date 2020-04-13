@@ -3,8 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  // res.render('index', { title: 'Express is cool Hello' });
-  res.redirect("/pdcontacts");
+  res.render("index", { title: "Express is cool Hello" });
 });
 
 module.exports = router;

@@ -4,7 +4,7 @@ var mongodb = require("mongodb");
 var MongoClient = mongodb.MongoClient;
 
 router.get("/", function (req, res, next) {
-  res.render("pcontactForm");
+  res.render("bcontactForm");
 });
 
 router.post("/", function (req, res, next) {
@@ -13,10 +13,10 @@ router.post("/", function (req, res, next) {
     if (err) throw err;
     var dbo = db.db("contacts");
     dbo
-      .collection("pcontacts")
+      .collection("bcontact")
       .insertOne(req.body)
       .then((value) => {
-        res.redirect("/pdcontacts");
+        res.redirect("/bdcontact");
       });
   });
 });
