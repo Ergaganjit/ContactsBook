@@ -1,53 +1,57 @@
 <div class="row">
-    <form action="createBcontact" method="POST" class="col s12">
+    <form action="{{action}}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <input id="bfname" name="bfname" type="text" class="validate">
+                <input id="bfname" name="bfname" type="text" class="validate" value={{contact.bfname}}>
                 <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-                <input id="blname" name="blname" type="text" class="validate">
+                <input id="blname" name="blname" type="text" class="validate" value={{contact.blname}}>
                 <label for="last_name">Last Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="bemail" name="bemail" type="email" class="validate">
+                <input id="bemail" name="bemail" type="email" class="validate" value={{contact.bemail}}>
                 <label for="email">Email</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="bcompanyname" name="bcompanyname" type="text" class="validate">
+                <input id="bcompanyname" name="bcompanyname" type="text" class="validate"
+                    value={{contact.bcompanyname}}>
                 <label for="bcompanyname">Company Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="bphone" name="bphone" type="text" class="validate">
+                <input id="bphone" name="bphone" type="text" class="validate" value={{contact.bphone}}>
                 <label for="bphone">Business Phone No</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="bofficeaddress" name="bofficeaddress" type="text" class="validate">
+                <input id="bofficeaddress" name="bofficeaddress" type="text" class="validate"
+                    value={{contact.bofficeaddress}}>
                 <label for="bofficeaddress">Office Address</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="note" name="note" type="text" class="validate">
+                <input id="note" name="note" type="text" class="validate" value={{contact.note}}>
                 <label for="note">Note</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s6">
-                <button class="btn waves-effect waves-light" type="submit" name="submit">Create Business Contact
+                <button class="btn waves-effect waves-light" type="submit" name="submit">Submit
                     <i class="material-icons right">send</i>
                 </button>
             </div>
     </form>
+    {{#if hideBcontact}}
+    {{else}}
     <div class="row">
         <form method="get" action="/bdcontact">
             <div class="input-field col s6">
@@ -57,5 +61,5 @@
             </div>
         </form>
     </div>
-
+    {{/if}}
 </div>
