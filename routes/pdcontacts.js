@@ -19,7 +19,7 @@ router.post("/", function (req, res, next) {
 });
 
 /*To update a user*/
-router.put("/:id/update", (req, res) => {
+router.get("/:id/update", (req, res) => {
   var url = "mongodb://localhost:27017/";
   var upcontacts = MongoClient.connect(url, function (err, db) {
     if (err) throw err;
@@ -27,13 +27,39 @@ router.put("/:id/update", (req, res) => {
     var userToUpdate = req.params.id;
     dbo
       .collection("pcontacts")
-      .findOneAndUpdate({ _id: userToUpdate }, req.body, function (
+      .findOne({ _id: new mongodb.ObjectID(userToUpdate) }, function (
         err,
         result
       ) {
-        res.redirect("pdcontacts");
+        res.render("pcontactForm", {
+          contact: result,
+          action: "/pdcontacts/" + userToUpdate + "/update",
+          hidePcontacts: true,
+        });
         db.close();
       });
+  });
+});
+
+router.post("/:id/update", (req, res) => {
+  console.log(req.body);
+  var url = "mongodb://localhost:27017/";
+  MongoClient.connect(url, function (err, db) {
+    if (err) throw err;
+    var dbo = db.db("contacts");
+    var userToUpdate = req.params.id;
+    console.log(userToUpdate);
+    dbo
+      .collection("pcontacts")
+      .updateOne(
+        { _id: new mongodb.ObjectID(userToUpdate) },
+        { $set: { ...req.body } },
+        function (err, result) {
+          console.log(result);
+          res.redirect("/pdcontacts");
+          db.close();
+        }
+      );
   });
 });
 

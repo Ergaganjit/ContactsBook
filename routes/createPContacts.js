@@ -4,7 +4,7 @@ var mongodb = require("mongodb");
 var MongoClient = mongodb.MongoClient;
 
 router.get("/", function (req, res, next) {
-  res.render("pcontactForm");
+  res.render("pcontactForm", { action: "createPcontacts" });
 });
 
 router.post("/", function (req, res, next) {
