@@ -4,6 +4,8 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var hbs = require("hbs");
+
+//comment added
 var indexRouter = require("./routes/index");
 var pcontactsRouter = require("./routes/pcontacts");
 var bcontactRouter = require("./routes/bcontact");
@@ -11,6 +13,7 @@ var createPContactRouter = require("./routes/createPContacts");
 var createBContactRouter = require("./routes/createBContact");
 var pdcontactsRouter = require("./routes/pdcontacts");
 var bdcontactRouter = require("./routes/bdcontact");
+
 var app = express();
 
 // view engine setup
