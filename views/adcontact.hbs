@@ -1,0 +1,38 @@
+<div class="container">
+    <h4 align="center">
+        Meeting Schedule List
+    </h4>
+
+</div>
+
+<table class="striped">
+    <tr>
+        <th>Title</th>
+        <th>Schedule date</th>
+        <th> Start Time</th>
+        <th>End time</th>
+        <th>About</th>
+        <th>Note</th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    {{#each adcontact}}
+    <tr>
+        <td>{{this.title}} </td>
+        <td>{{this.date}} </td>
+        <td>{{this.start_time}} </td>
+        <td>{{this.end_time}} </td>
+        <td>{{this.about}} </td>
+        <td>{{this.note}} </td>
+        <td>
+            <form action="/adcontact/{{_id}}/delete" method="post">
+                <button class="btn" type="submit"><i class="material-icons">delete</i></button>
+            </form>
+        </td>
+        <td>
+            <a class="btn" href="/adcontact/{{_id}}/update"><i class="material-icons">update</i></a>
+        </td>
+
+    </tr>
+    {{/each}}
+</table>
