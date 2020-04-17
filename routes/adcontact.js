@@ -34,7 +34,7 @@ router.get("/:id/update", (req, res) => {
         res.render("acontactForm", {
           contact: result,
           action: "/adcontact/" + userToUpdate + "/update",
-          hidePcontacts: true,
+          hideAcontact: true,
         });
         db.close();
       });

@@ -3,7 +3,7 @@ var router = express.Router();
 var mongodb = require("mongodb");
 var MongoClient = mongodb.MongoClient;
 
-/* GET gettting the list of entries from a contacts database. */
+/* GET users listing. */
 router.get("/", function (req, res, next) {
   var url = "mongodb://localhost:27017/";
   var acontact = MongoClient.connect(url, function (err, db) {
