@@ -4,8 +4,6 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var hbs = require("hbs");
-
-//comment added
 var indexRouter = require("./routes/index");
 var pcontactsRouter = require("./routes/pcontacts");
 var bcontactRouter = require("./routes/bcontact");
@@ -13,6 +11,9 @@ var createPContactRouter = require("./routes/createPContacts");
 var createBContactRouter = require("./routes/createBContact");
 var pdcontactsRouter = require("./routes/pdcontacts");
 var bdcontactRouter = require("./routes/bdcontact");
+var acontactrouter = require("./routes/acontact");
+var adcontactrouter = require("./routes/adcontact");
+var createAContactRouter = require("./routes/createAContact");
 
 var app = express();
 
@@ -33,6 +34,10 @@ app.use("/createPContacts", createPContactRouter);
 app.use("/createBContact", createBContactRouter);
 app.use("/pdcontacts", pdcontactsRouter);
 app.use("/bdcontact", bdcontactRouter);
+app.use("/acontact", acontactrouter);
+app.use("/adcontact", adcontactrouter);
+app.use("/createAContact", createAContactRouter);
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
